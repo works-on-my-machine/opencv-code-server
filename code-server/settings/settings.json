@@ -1,0 +1,34 @@
+{
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "cmake.configureOnOpen": true,
+  "cmake.experimental.enableCodeLensProvider": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorStyle": "underline",
+  "editor.fontFamily": "Roboto Mono, 'Courier New', monospace",
+  "editor.fontLigatures": false,
+  "editor.fontSize": 12,
+  "editor.fontWeight": "normal",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    80
+  ],
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "files.eol": "\n",
+  "git.autofetch": true,
+  "git.decorations.enabled": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.shell.linux": "/bin/bash",
+  "workbench.colorTheme": "GitHub Light",
+  "workbench.iconTheme": "vscode-icontheme-nomo-dark-macos",
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "newUntitledFile"
+}
