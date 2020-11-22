@@ -12,7 +12,7 @@ services:
       - TZ=Europe/Istanbul
       - "PASSWORD=${CODE_SERVER_PASSWORD}"
       - "SUDO_PASSWORD=${CODE_SERVER_SUDO_PASSWORD}"
-    image: "ghcr.io/works-on-my-machine/opencv-code-server"
+    image: ghcr.io/works-on-my-machine/opencv-code-server:main
     networks:
       - opencv-code-server
     restart: unless-stopped
@@ -22,6 +22,7 @@ services:
       - "./opencv-code-server/settings/extensions.csv:/config/extensions.csv"
       - "./opencv-code-server/settings/settings.json:/config/settings.json"
       - "./opencv-code-server/example-project:/projects/example-project"
+      - "./opencv-code-server/custom-cont-init.d:/config/custom-cont-init.d"
   opencv-nginx-proxy:
     container_name: opencv-nginx-proxy
     depends_on:

@@ -1,4 +1,5 @@
 #!/bin/bash
+apt-get update && apt install wget
 DOWNLOAD_DIR=/tmp
 EXTENSIONS_DIR=/config/extensions
 
