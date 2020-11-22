@@ -1,6 +1,8 @@
 name: GitHub Container Registry
 on:
   push:
+    paths: 
+      - Dockerfile
     branches:
       - main
     tags:
