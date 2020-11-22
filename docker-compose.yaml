@@ -12,7 +12,7 @@ services:
       - TZ=Europe/Istanbul
       - "PASSWORD=${CODE_SERVER_PASSWORD}"
       - "SUDO_PASSWORD=${CODE_SERVER_SUDO_PASSWORD}"
-    image: ghcr.io/works-on-my-machine/opencv-code-server:main
+    image: ghcr.io/works-on-my-machine/opencv-code-server:latest
     networks:
       - opencv-code-server
     restart: unless-stopped
