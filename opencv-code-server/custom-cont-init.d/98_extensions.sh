@@ -11,6 +11,3 @@ echo "[ Installing $publisher.$extension-$version ]"
 code-server --extensions-dir $EXTENSIONS_DIR --install-extension $DOWNLOAD_DIR/$publisher.$extension-$version.vsix
 rm $DOWNLOAD_DIR/$publisher.$extension-$version.vsix
 done < <(grep "" /config/extensions.csv)
-
-echo "[ Cleaning up ]"
-rm /config/extensions.csv

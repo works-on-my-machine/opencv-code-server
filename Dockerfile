@@ -1,6 +1,34 @@
-#!/bin/bash
-echo "[ Building and installing opencv ]"
-DEBIAN_FRONTEND=noninteractive apt-get update \
+FROM linuxserver/code-server:v3.6.0-ls51
+
+# Install nlopt, R
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+  && apt-get install -qq -y --no-install-recommends \
+  build-essential \
+  cmake \
+  git \
+  ca-certificates \
+  curl \
+  r-base \
+  && cd /opt \
+  && git clone https://github.com/stevengj/nlopt.git \
+  && cd nlopt \
+  && mkdir build \
+  && cd build \
+  && cmake -D NLOPT_PYTHON=OFF \
+  -D NLOPT_OCTAVE=OFF \
+  -D NLOPT_MATLAB=OFF \
+  -D NLOPT_GUILE=OFF \
+  -D NLOPT_SWIG=OFF \
+  .. \
+  && make \
+  && make install \
+  && ldconfig \
+  && rm -rf /opt/nlopt \
+  && rm -rf /tmp/* \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install opencv
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
   && apt-get install -qq -y --no-install-recommends \
   pkg-config \
   openssh-client \
@@ -59,5 +87,26 @@ DEBIAN_FRONTEND=noninteractive apt-get update \
   && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime \
   && rm -rf /opt/opencv \
   && rm -rf /opt/opencv_contrib \
+  && rm -rf /tmp/* \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install clangd
+ARG LLVM=12
+RUN curl -L https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
+  echo "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main" > /etc/apt/sources.list.d/llvm.list && \
+  apt-get update && \
+  apt-get install -y  \
+  clang-tools-$LLVM \
+  clangd-$LLVM \
+  clang-tidy-$LLVM \
+  gcc-multilib \
+  g++-multilib \
+  gdb && \
+  ln -s /usr/bin/clang-$LLVM /usr/bin/clang && \
+  ln -s /usr/bin/clang++-$LLVM /usr/bin/clang++ && \
+  ln -s /usr/bin/clang-cl-$LLVM /usr/bin/clang-cl && \
+  ln -s /usr/bin/clang-cpp-$LLVM /usr/bin/clang-cpp && \
+  ln -s /usr/bin/clang-tidy-$LLVM /usr/bin/clang-tidy && \
+  ln -s /usr/bin/clangd-$LLVM /usr/bin/clangd \
   && rm -rf /tmp/* \
   && rm -rf /var/lib/apt/lists/*
