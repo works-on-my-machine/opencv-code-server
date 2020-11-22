@@ -1,6 +1,5 @@
-# opencv-code-server
+# OpenCV Code Server
 Code Server Docker image for OpenCV with C++ development on the browser. Contains OpenCV, NLopt and R libraries.
-
 
 ## Prerequisites
 - git
@@ -24,11 +23,38 @@ In order to change default settings modify following files:
 ./opencv-code-server/settings/settings.json # Add remove vscode settings
 ```
 
+## Prepare
+### DNS Records
+Since we will be accessing code-server from browser, prepare following DNS records in your DNS server. Editing `/etc/hosts` file is ok too. (Usually `c:\windows\system32\drivers\etc\hosts` for Windows)
+
+I used suffix `.lan` as an example. It can be anything as long as you can access it. Nginx proxy will redirect 
+```
+127.0.0.1 opencv.lan
+127.0.0.1 novnc.lan
+```
+### Certificates
+Create certificate-key pair. I recommend [mkcert](https://github.com/FiloSottile/mkcert). Certificates must be valid for DNS records above.
+
+```bash
+mkcert opencv.lan novnc.lan
+```
 ## Install
 ```bash
-
+CERTIFICATE_PATH=<my-certificate-path> \
+CERTIFICATE_KEY_PATH=<my-certificate-key-path> \
+NOVNC_DNS=novnc.lan \
+CODE_SERVER_DNS=opencv.lan \
+CODE_SERVER_PUID=1000 \
+CODE_SERVER_PGID=1000 \
+CODE_SERVER_PASSWORD=password \
+CODE_SERVER_SUDO_PASSWORD=password \
+CODE_SERVER_CONFIG_VOLUME=<my-config-path> \
+CODE_SERVER_PROJECTS_VOLUME=<my-projects-path> \
+./install.sh
 ```
 
+## Use
+Open your favorite browser and access to `opencv.lan` and `novnc.lan`. Checkout example project.
 
 ## Advanced
 Modify `Dockerfile` in order to add or remove libraries to container where code-server is running. Following are installed:
@@ -36,3 +62,5 @@ Modify `Dockerfile` in order to add or remove libraries to container where code-
 - NLopt
 - R
 - clangd
+
+OpenCV build is optimized for AVX2 (I am using Intel i7 4790K). Change this line in `Dockerfile` according to your CPU. For more info [see](https://github.com/opencv/opencv/wiki/CPU-optimizations-build-options).

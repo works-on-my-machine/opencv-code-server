@@ -18,8 +18,9 @@ services:
     volumes:
       - "${CODE_SERVER_CONFIG_VOLUME}:/config"
       - "${CODE_SERVER_PROJECTS_VOLUME}:/projects"
-      - "./settings/extensions.csv:/config/extensions.csv"
-      - "./settings/settings.json:/config/settings.json"
+      - "./opencv-code-server/settings/extensions.csv:/config/extensions.csv"
+      - "./opencv-code-server/settings/settings.json:/config/settings.json"
+      - "./opencv-code-server/example-project:/projects/example-project"
   opencv-code-server-proxy:
     container_name: opencv-code-server-proxy
     depends_on:
@@ -32,7 +33,7 @@ services:
       - "443:443"
     restart: always
     volumes:
-      - "${PROXY_CERTIFICATE_PATH}:/etc/nginx/code-server.pem"
-      - "${PROXY_CERTIFICATE_KEY_PATH}:/etc/nginx/code-server-key.pem"
-      - "./proxy/conf.d:/etc/nginx/conf.d"
+      - "${CERTIFICATE_PATH}:/etc/nginx/code-server.pem"
+      - "${CERTIFICATE_KEY_PATH}:/etc/nginx/code-server-key.pem"
+      - "./opencv-code-server-proxy/conf.d:/etc/nginx/conf.d"
 version: "3.3"
