@@ -2,7 +2,7 @@ name: GitHub Container Registry
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - v*
 env:
