@@ -54,6 +54,7 @@ CODE_SERVER_CONFIG_VOLUME=<my-config-path> \
 CODE_SERVER_PROJECTS_VOLUME=<my-projects-path> \
 ./install.sh
 ```
+Using absolute paths is the recommended way. If you want to use relative paths, make sure they are relative to `docker-compose.yaml` file.
 
 ## Use
 Open your favorite browser and access to `https://opencv.lan` and `https://novnc.lan`. Checkout example project.
