@@ -68,7 +68,7 @@ Open your favorite browser and access to `https://opencv.lan` and `https://novnc
 ```
 
 ## TODO
-- [] Debug example with launch.json
+- [ ] Debug example with launch.json
 
 ## Advanced
 ### Modifying Libraries
