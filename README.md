@@ -62,6 +62,14 @@ Open your favorite browser and access to `https://opencv.lan` and `https://novnc
 ![opencv.lan](images/code-server.png)
 ![novnc.lan](images/novnc.png)
 
+## Clean up
+```bash
+./clean.sh
+```
+
+## TODO
+- [] Debug example with launch.json
+
 ## Advanced
 ### Modifying Libraries
 Modify `Dockerfile` in order to add or remove libraries to container where code-server is running. Following are installed:
