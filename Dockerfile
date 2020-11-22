@@ -1,4 +1,5 @@
 FROM linuxserver/code-server:v3.6.0-ls51
+LABEL org.opencontainers.image.source https://github.com/works-on-my-machine/opencv-code-server
 
 # Install nlopt, R
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \

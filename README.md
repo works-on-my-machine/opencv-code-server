@@ -27,7 +27,7 @@ In order to change default settings modify following files:
 ### DNS Records
 Since we will be accessing code-server from browser, prepare following DNS records in your DNS server. Editing `/etc/hosts` file is ok too. (Usually `c:\windows\system32\drivers\etc\hosts` for Windows)
 
-I used suffix `.lan` as an example. It can be anything as long as you can access it. Nginx proxy will redirect 
+I used suffix `.lan` as an example. It can be anything as long as you can access it. Nginx proxy will redirect them to correct containers.
 ```
 127.0.0.1 opencv.lan
 127.0.0.1 novnc.lan
@@ -43,6 +43,8 @@ mkcert opencv.lan novnc.lan
 CERTIFICATE_PATH=<my-certificate-path> \
 CERTIFICATE_KEY_PATH=<my-certificate-key-path> \
 NOVNC_DNS=novnc.lan \
+NOVNC_WIDTH=800 \
+NOVNC_HEIGHT=600 \
 CODE_SERVER_DNS=opencv.lan \
 CODE_SERVER_PUID=1000 \
 CODE_SERVER_PGID=1000 \
@@ -54,9 +56,10 @@ CODE_SERVER_PROJECTS_VOLUME=<my-projects-path> \
 ```
 
 ## Use
-Open your favorite browser and access to `opencv.lan` and `novnc.lan`. Checkout example project.
+Open your favorite browser and access to `https://opencv.lan` and `https://novnc.lan`. Checkout example project.
 
 ## Advanced
+### Modifying Libraries
 Modify `Dockerfile` in order to add or remove libraries to container where code-server is running. Following are installed:
 - OpenCV
 - NLopt
@@ -64,3 +67,6 @@ Modify `Dockerfile` in order to add or remove libraries to container where code-
 - clangd
 
 OpenCV build is optimized for AVX2 (I am using Intel i7 4790K). Change this line in `Dockerfile` according to your CPU. For more info [see](https://github.com/opencv/opencv/wiki/CPU-optimizations-build-options).
+
+### Editing Nginx Configuration
+Nginx acts as a reverse proxy server in front of `opencv-code-server` and `novnc`. Configuration files can be found under `./opencv-nginx-proxy/conf.d` folder.

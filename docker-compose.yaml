@@ -6,12 +6,13 @@ services:
   opencv-code-server:
     container_name: opencv-code-server
     environment:
+      - "DISPLAY=opencv-novnc:0.0"
       - "PUID=${CODE_SERVER_PUID}"
       - "PGID=${CODE_SERVER_PGID}"
       - TZ=Europe/Istanbul
       - "PASSWORD=${CODE_SERVER_PASSWORD}"
       - "SUDO_PASSWORD=${CODE_SERVER_SUDO_PASSWORD}"
-    image: "linuxserver/code-server:v3.6.0-ls51"
+    image: "ghcr.io/works-on-my-machine/opencv-code-server"
     networks:
       - opencv-code-server
     restart: unless-stopped
@@ -21,10 +22,11 @@ services:
       - "./opencv-code-server/settings/extensions.csv:/config/extensions.csv"
       - "./opencv-code-server/settings/settings.json:/config/settings.json"
       - "./opencv-code-server/example-project:/projects/example-project"
-  opencv-code-server-proxy:
-    container_name: opencv-code-server-proxy
+  opencv-nginx-proxy:
+    container_name: opencv-nginx-proxy
     depends_on:
       - opencv-code-server
+      - opencv-novnc
     image: nginx
     networks:
       - opencv-code-server
@@ -35,5 +37,16 @@ services:
     volumes:
       - "${CERTIFICATE_PATH}:/etc/nginx/code-server.pem"
       - "${CERTIFICATE_KEY_PATH}:/etc/nginx/code-server-key.pem"
-      - "./opencv-code-server-proxy/conf.d:/etc/nginx/conf.d"
+      - "./opencv-nginx-proxy/conf.d:/etc/nginx/conf.d"
+  opencv-novnc:
+    container_name: opencv-novnc
+    environment:
+      - "DISPLAY_WIDTH=${NOVNC_WIDTH}"
+      - "DISPLAY_HEIGHT=${NOVNC_HEIGHT}"
+      - RUN_XTERM=no
+      - RUN_FLUXBOX=yes
+    image: "theasp/novnc:latest"
+    networks:
+      - opencv-code-server
+    restart: unless-stopped
 version: "3.3"
