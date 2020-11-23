@@ -1,9 +1,12 @@
 # OpenCV Code Server
 Code Server Docker image for OpenCV with C++ development on the browser. Contains OpenCV, NLopt and R libraries. Also contains a novnc container for visualization needs.
 
+Jump right into coding, do not lose time with compiling OpenCV, configuring IDEs or other not so important things than your actual code.
+
 ## TODO
 - [x] Debug example with launch.json
 - [ ] CUDA support with nvidia-docker
+- [ ] Python support
 
 ## Prerequisites
 - git
