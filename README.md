@@ -62,13 +62,18 @@ Open your favorite browser and access to `https://opencv.lan` and `https://novnc
 ![opencv.lan](images/code-server.png)
 ![novnc.lan](images/novnc.png)
 
+## Debug
+You can debug your code with LLDB debugger. Please check example project's launch.json and tasks.json files for more info.
+
+![novnc.lan](images/debug.png)
+
 ## Clean up
 ```bash
 ./clean.sh
 ```
 
 ## TODO
-- [ ] Debug example with launch.json
+- [x] Debug example with launch.json
 
 ## Advanced
 ### Modifying Libraries
