@@ -8,7 +8,10 @@
       "program": "${workspaceFolder}/build/example_project",
       "args": [],
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "cmake"
+      "preLaunchTask": "cmake",
+      "initCommands": [
+        "settings set target.disable-aslr false"
+      ]
     }
   ]
 }
