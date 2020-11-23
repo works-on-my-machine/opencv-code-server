@@ -1,11 +1,14 @@
 # OpenCV Code Server
-Code Server Docker image for OpenCV with C++ development on the browser. Contains OpenCV, NLopt and R libraries.
+Code Server Docker image for OpenCV with C++ development on the browser. Contains OpenCV, NLopt and R libraries. Also contains a novnc container for visualization needs.
+
+## TODO
+- [x] Debug example with launch.json
+- [ ] CUDA support with nvidia-docker
 
 ## Prerequisites
 - git
 - docker
 - docker-compose
-
 
 ## Clone
 ```bash
@@ -54,7 +57,7 @@ CODE_SERVER_CONFIG_VOLUME=<my-config-path> \
 CODE_SERVER_PROJECTS_VOLUME=<my-projects-path> \
 ./install.sh
 ```
-Using absolute paths is the recommended way. If you want to use relative paths, make sure they are relative to `docker-compose.yaml` file.
+Using absolute paths is the recommended way. If you want to use relative paths, make sure they are relative to `docker-compose.yaml` file. Try to keep config and projects path outside of this repository for a persistent experience.
 
 ## Use
 Open your favorite browser and access to `https://opencv.lan` and `https://novnc.lan`. Checkout example project.
@@ -68,12 +71,10 @@ You can debug your code with LLDB debugger. Please check example project's launc
 ![novnc.lan](images/debug.png)
 
 ## Clean up
+Removes configuration files and containers. Does not touch other files.
 ```bash
 ./clean.sh
 ```
-
-## TODO
-- [x] Debug example with launch.json
 
 ## Advanced
 ### Modifying Libraries
