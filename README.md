@@ -7,6 +7,9 @@ Jump right into coding, do not lose time with compiling OpenCV, configuring IDEs
 - [x] Debug example with launch.json
 - [ ] CUDA support with nvidia-docker
 - [ ] Python support
+- [x] Test on Linux (Works on Fedora 33 with moby-engine, docker-compose, cgroupsv1)
+- [ ] Test on macOS
+- [ ] Test on Windows
 
 ## Prerequisites
 - git
