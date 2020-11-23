@@ -10,6 +10,7 @@ Jump right into coding, do not lose time with compiling OpenCV, configuring IDEs
 - [x] Test on Linux (Works on Fedora 33 with moby-engine, docker-compose, cgroupsv1)
 - [ ] Test on macOS
 - [ ] Test on Windows
+- [ ] aarch64 support
 
 ## Prerequisites
 - git
