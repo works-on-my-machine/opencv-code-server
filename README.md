@@ -1,5 +1,5 @@
 # OpenCV Code Server
-Code Server Docker image for OpenCV with C++ development on the browser. Contains OpenCV, NLopt and R libraries. Also contains a novnc container for visualization needs.
+Code Server Docker image for OpenCV with C++ development on the browser. Contains OpenCV, NLopt and R libraries. Also contains a novnc container for visualization needs. Supports syntax highlighting and intellisense for c++ and cmake files.
 
 Jump right into coding, do not lose time with compiling OpenCV, configuring IDEs or other not so important things than your actual code.
 
