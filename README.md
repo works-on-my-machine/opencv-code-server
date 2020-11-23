@@ -66,7 +66,7 @@ CODE_SERVER_PROJECTS_VOLUME=<my-projects-path> \
 Using absolute paths is the recommended way. If you want to use relative paths, make sure they are relative to `docker-compose.yaml` file. Try to keep config and projects path outside of this repository for a persistent experience.
 
 ## Use
-Open your favorite browser and access to `https://opencv.lan` and `https://novnc.lan`. Checkout example project.
+Open your favorite browser and access to `https://opencv.lan` and `https://novnc.lan`. Checkout example project. When you open your first project on the code-server it will ask you to select a kit, clang 12.0.0 is used for examples. It can be changed from status bar (See screenshots).
 
 ![opencv.lan](images/code-server.png)
 ![novnc.lan](images/novnc.png)
