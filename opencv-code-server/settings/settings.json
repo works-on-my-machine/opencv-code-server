@@ -4,6 +4,8 @@
   },
   "cmake.configureOnOpen": true,
   "cmake.experimental.enableCodeLensProvider": true,
+  "debug.console.fontFamily": "SFMono",
+  "debug.console.fontSize": 12,
   "debug.toolBarLocation": "docked",
   "diffEditor.ignoreTrimWhitespace": true,
   "editor.cursorSmoothCaretAnimation": true,
