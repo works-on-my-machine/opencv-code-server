@@ -27,6 +27,9 @@
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
+  "favorites.resources": [
+    "/config/workspace"
+  ],
   "files.eol": "\n",
   "git.autofetch": true,
   "git.decorations.enabled": true,
