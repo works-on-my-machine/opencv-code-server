@@ -1,6 +1,11 @@
 #!/bin/bash
 HOME_DIR=/config
 
+# Install oh-my-bash
+echo "[ Installing oh-my-bash ]"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+sed -i 's/OSH_THEME="font"/OSH_THEME="roderik"/g' $HOME_DIR/.bashrc
+
 echo "[ Creating projects path ]"
 mkdir -p /projects && chown -R abc:abc /projects
 
