@@ -2,6 +2,8 @@
   "[cpp]": {
     "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
   },
+  "clangd.checkUpdates": true,
+  "clangd.onConfigChanged": "restart",
   "cmake.configureOnOpen": true,
   "cmake.experimental.enableCodeLensProvider": true,
   "debug.console.fontFamily": "SFMono, 'Courier New', monospace",
