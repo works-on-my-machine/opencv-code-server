@@ -5,7 +5,7 @@ EXTENSIONS_DIR=/config/extensions
 while IFS=, read -r publisher extension version;
 do
 EXTENSION_URL="https://$publisher.gallery.vsassets.io/_apis/public/gallery/publisher/$publisher/extension/$extension/$version/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage"
-INSTALLED_VERSION=$(code-server --extensions-dir /config/extensions --list-extensions --show-versions|grep $publisher|sed 's/.*\@//')
+INSTALLED_VERSION=$(code-server --extensions-dir /config/extensions --list-extensions --show-versions|grep -i $publisher|sed 's/.*\@//')
   if [ "$INSTALLED_VERSION" == $version ]; then
     echo "[ $publisher.$extension@$INSTALLED_VERSION.vsix is already installed ]"
   else
