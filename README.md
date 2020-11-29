@@ -11,7 +11,7 @@ Jump right into coding, do not lose time with compiling OpenCV, configuring IDEs
 - [ ] Test on macOS
 - [ ] Test on Windows
 - [ ] aarch64 support
-- [ ] Check installed extensions and do not reinstall everytime container restarts.
+- [x] Check installed extensions and do not reinstall everytime container restarts.
 
 ## Prerequisites
 - git
