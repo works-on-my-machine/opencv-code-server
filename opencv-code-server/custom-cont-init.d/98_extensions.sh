@@ -11,7 +11,7 @@ INSTALLED_VERSION=$(code-server --extensions-dir /config/extensions --list-exten
   else
     echo "[ Downloading $publisher.$extension@$version.vsix ]"
     #wget $EXTENSION_URL -q -O $DOWNLOAD_DIR/$publisher.$extension@$version.vsix
-    curl -o $DOWNLOAD_DIR/$publisher.$extension@$version.vsix $EXTENSION_URL
+    curl -s -o $DOWNLOAD_DIR/$publisher.$extension@$version.vsix $EXTENSION_URL
     echo "[ Installing $publisher.$extension-$version ]"
     code-server --extensions-dir $EXTENSIONS_DIR --install-extension $DOWNLOAD_DIR/$publisher.$extension@$version.vsix
     rm $DOWNLOAD_DIR/$publisher.$extension@$version.vsix
