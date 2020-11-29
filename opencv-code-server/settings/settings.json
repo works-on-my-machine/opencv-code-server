@@ -8,7 +8,6 @@
   "cmake.experimental.enableCodeLensProvider": true,
   "debug.console.fontFamily": "SFMono, 'Courier New', monospace",
   "debug.console.fontSize": 12,
-  "debug.toolBarLocation": "docked",
   "diffEditor.ignoreTrimWhitespace": true,
   "editor.cursorSmoothCaretAnimation": true,
   "editor.cursorStyle": "underline",
