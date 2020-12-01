@@ -1,8 +1,12 @@
+# Custom
+build/
+.env
+run.sh
+.cache
 
 # Created by https://www.toptal.com/developers/gitignore/api/vscode,visualstudiocode,windows,macos,linux,c++,cuda
 # Edit at https://www.toptal.com/developers/gitignore?templates=vscode,visualstudiocode,windows,macos,linux,c++,cuda
 
-build/
 ### C++ ###
 # Prerequisites
 *.d
