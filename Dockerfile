@@ -1,4 +1,4 @@
-FROM linuxserver/code-server:v3.7.4-ls61
+FROM linuxserver/code-server:v3.8.0-ls62
 LABEL org.opencontainers.image.source https://github.com/works-on-my-machine/opencv-code-server
 
 # Install nlopt, R
