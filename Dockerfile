@@ -94,7 +94,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 # Install clangd
 ARG LLVM=12
 RUN curl -L https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
-  echo "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main" > /etc/apt/sources.list.d/llvm.list && \
+  echo "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-12 main" > /etc/apt/sources.list.d/llvm.list && \
+  echo "deb-src http://apt.llvm.org/bionic/ llvm-toolchain-bionic-12 main" > /etc/apt/sources.list.d/llvm.list && \
   apt-get update && \
   apt-get install -y  \
   clang-tools-$LLVM \
